@@ -9,7 +9,8 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
 import androidx.lifecycle.ProcessLifecycleOwner
-import com.chibatching.kotpref.Kotpref
+import com.yandex.metrica.YandexMetrica
+import com.yandex.metrica.YandexMetricaConfig
 import ir.kindnesswall.data.local.AppPref
 import ir.kindnesswall.data.local.dao.catalog.GiftModel
 import ir.kindnesswall.data.model.ChatContactModel
@@ -53,6 +54,12 @@ class KindnessApplication : Application(), LifecycleObserver {
         if (BuildConfig.DEBUG)
             Timber.plant(Timber.DebugTree())
 
+        YandexMetrica.activate(
+            this,
+            YandexMetricaConfig.newConfigBuilder("eb830151-7a51-4c99-b498-a266722b89d3").build()
+        )
+        YandexMetrica.enableActivityAutoTracking(this)
+
         startKoin {
             androidLogger()
             androidContext(this@KindnessApplication)
@@ -82,7 +89,7 @@ class KindnessApplication : Application(), LifecycleObserver {
         contactListMap[chatContactModel.chat?.chatId!!] = chatContactModel
     }
 
-    fun removeContact(chatId: Long){
+    fun removeContact(chatId: Long) {
         contactListMap.remove(chatId)
     }
 
