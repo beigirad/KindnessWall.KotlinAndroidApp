@@ -22,9 +22,6 @@ android {
 
         vectorDrawables.useSupportLibrary = true
 
-        buildConfigField "Long", "READ_TIMEOUT_SECOND", READ_TIMEOUT_SECOND
-        buildConfigField "Long", "CONNECTION_TIMEOUT_SECOND", CONNECTION_TIMEOUT_SECOND
-
         resValue "string", "google_maps_key", (project.findProperty("GOOGLE_MAPS_API_KEY") ?: "")
     }
 
@@ -39,7 +36,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
-            manifestPlaceholders = [isBranchSdkInTestMode: "true"]
             applicationIdSuffix = ".debug"
         }
     }
