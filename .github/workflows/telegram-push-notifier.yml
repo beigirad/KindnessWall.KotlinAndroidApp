@@ -27,9 +27,9 @@ jobs:
           echo ${#commits[@]}
           for n in ${commits} ; do
             echo $n
+            echo ${{toJson(n)}}
             echo ${n.message}
           done
-          json=${{toJson(github)}}
 
       - name: Send message to Telegram
         uses: appleboy/telegram-action@v0.1.1
