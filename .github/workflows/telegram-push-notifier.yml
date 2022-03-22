@@ -12,13 +12,13 @@ jobs:
     steps:
       - name: Message creator
         run: |
-          echo ${{github.event.before}}
-          echo ${{github.event.head}}
+          echo befor = ${{github.event.before}}
+          echo head = ${{github.event.head}}
           commits=${{github.event.commits}}
           echo ${{github.event.commits}}
 
           echo $commits
-          echo $commits[0]
+          echo $commits[0][message]
           echo ${commits[0].message}
           for commit in $commits;
           do
