@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Message creator
         run: |
-          jsonGithub="${{toJson(github.event)}}"
+          jsonGithub='${{toJson(github.event)}}'
           echo $jsonGithub
           commits=$(echo $jsonGithub | jq '.commits')
           echo $commits
