@@ -12,10 +12,12 @@ jobs:
     steps:
       - name: Message creator
         run: |
-          echo ${{toJson(github)}}
+          json=${{toJson(github)}}
+          echo $json
           echo befor = ${{github.event.before}}
           echo after = ${{github.event.after}}
-          
+          echo commits = ${json.commits}
+
       #          commits=${{github.event.commits}}
       #          echo ${{github.event.commits[][message]}}
       #
