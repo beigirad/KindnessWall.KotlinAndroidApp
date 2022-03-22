@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Message creator
         run: |
+          echo ${{github.event.before}}
+          echo ${{github.event.head}}
           commits=${{github.event.commits}}
           echo ${{github.event.commits}}
 
