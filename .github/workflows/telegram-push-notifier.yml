@@ -29,7 +29,6 @@ jobs:
             commit=commits[i]
             echo "$i" - "${commits[i]}"
             echo "$i" - "${commit}"
-            echo "$i" - ${commit.message}
           done
 
       - name: Send message to Telegram
