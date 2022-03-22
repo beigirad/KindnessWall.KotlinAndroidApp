@@ -16,6 +16,8 @@ jobs:
           echo ${{github.event.commits}}
 
           echo $commits
+          echo $commits[0]
+          echo ${commits[0].message}
           for commit in $commits;
           do
             echo $commit
