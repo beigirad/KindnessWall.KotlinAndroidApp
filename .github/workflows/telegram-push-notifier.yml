@@ -12,7 +12,8 @@ jobs:
     steps:
       - name: Message creator
         run: |
-          commits=$(echo "${{toJson(github.event)}}" | jq '.commits')
+          jsonGithub="${{toJson(github.event)}}"
+          commits=$(echo $jsonGithub | jq '.commits')
           
           length=$(echo $commits | jq 'length')
 
