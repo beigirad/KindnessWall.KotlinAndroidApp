@@ -24,7 +24,7 @@ jobs:
           echo ${{github.event.commits[0].message}}
           echo ${{github.event.commits[0].url}}
 
-          commits=${{github.event.commits}}
+          commits=${{toJson(github.event.commits)}}
           echo ${{github.event.commits.*.message}}
           length=${#commits[@]}
           echo $length
