@@ -43,13 +43,8 @@ jobs:
           disable_web_page_preview: true
           format: html
           message: |
-            <a href="github.com/${{github.repository}}/commit/${{github.sha}}">${{github.sha}}</a> • <a href="github.com/${{github.actor}}">${{github.actor}}</a>
-            commits=${{github.event.commits}}
-            
-            ${{ github.event.commits[0].message }}
+            ${{steps.message_creator.outputs.message}}
             @Kindnesswall_Android_App
-            ⚡️ <a href="https://github.com/aszenz/repo/commit/${{ github.event.push.after }}">Commits</a> pushed to master by <em>${{ github.event.push.pusher.name }}</em> ⚡️
-            ${{ github.actor }}:${{ github.event.head_commit.message }}
 
       - name: send message using with
         uses: appleboy/telegram-action@v0.1.1
