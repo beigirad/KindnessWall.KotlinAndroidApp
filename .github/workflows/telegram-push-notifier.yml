@@ -11,10 +11,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Message creator
+        id: message_creator
         run: |
           jsonGithub='${{toJson(github.event)}}'
           commits=$(echo $jsonGithub | jq '.commits')
           length=$(echo $commits | jq 'length')
+          
+          outMessage=""
 
           for (( i = 0; i < length; i++ )); do
             commit=$(echo $commits | jq '.['$i']')
@@ -24,9 +27,12 @@ jobs:
             message=$(echo $commit | jq -r '.message')
             actor=$(echo $commit | jq -r '.author.username')
           
-            echo "<a href="\"$url\"">$sha</a> • <a href="\"https://github.com/$actor\"">$actor</a>"
-            echo $message
+            $outMessage+="<a href="\"$url\"">$sha</a> • <a href="\"https://github.com/$actor\"">$actor</a>"
+            $outMessage+=$message
           done
+
+          echo $outMessage
+          echo "::set-output name=message::$outMessage"
 
       - name: Send message to Telegram
         uses: appleboy/telegram-action@v0.1.1
