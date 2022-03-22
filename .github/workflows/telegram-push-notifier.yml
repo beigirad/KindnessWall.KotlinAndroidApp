@@ -27,8 +27,8 @@ jobs:
           length=${#commits[@]}
           for (( i = 0; i < length; i++ )); do
             commit=commits[i]
-            echo "$i" - ${commits[i]}
-            echo "$i" - ${commit}
+            echo "$i" - "${commits[i]}"
+            echo "$i" - "${commit}"
             echo "$i" - ${commit.message}
           done
 
