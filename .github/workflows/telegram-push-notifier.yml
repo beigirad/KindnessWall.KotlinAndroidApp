@@ -25,9 +25,10 @@ jobs:
           echo ${{github.event.commits[0].url}}
 
           commits=${{github.event.commits}}
+          echo ${{commits.*.message}}
           length=${#commits[@]}
           for (( i = 0; i < length; i++ )); do
-            commit=${{github.event.commits[i]}}
+            commit=${{commits[i]}}
             echo url=${{commit.url}}
             echo sha=${{commit.id}}
             echo actor=${{commit.author.username}}
