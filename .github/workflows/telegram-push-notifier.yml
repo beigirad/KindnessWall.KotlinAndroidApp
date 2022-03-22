@@ -15,7 +15,7 @@ jobs:
           json=${{toJson(github)}}
           echo befor = ${{github.event.before}}
           echo after = ${{github.event.after}}
-          echo commits = ${json.commits}
+          echo commits = ${{json.commits}}
           echo $json
 
       #          commits=${{github.event.commits}}
