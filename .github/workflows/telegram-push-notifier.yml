@@ -23,7 +23,7 @@ jobs:
                commits=${{github.event.commits}}
                echo ${{github.event.commits}}
 #               echo ${#commits[@]}
-               echo ${{#github.event.commits[@]}}
+#               echo ${{#github.event.commits[@]}}
                echo ${{github.event.commits[0]}}
                echo ${{github.event.commits[0].id}}
                echo ${{github.event.commits[0].message}}
