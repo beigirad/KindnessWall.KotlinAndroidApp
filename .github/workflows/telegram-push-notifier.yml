@@ -27,10 +27,12 @@ jobs:
           commits=${{github.event.commits}}
           echo ${{github.event.commits.*.message}}
           length=${#commits[@]}
-          for (( i = 0; i < length; i++ )); do
-            echo url=${{github.event.commits.*.url[i]}}
-            echo sha=${{github.event.commits.*.id[i]}}
-            echo sha=${{github.event.commits.*.message[i]}}
+          for i in "${commits[@]}" do
+            echo "Value: ${i}"
+            echo "Value: ${i%.*}"
+#            echo url=${{github.event.commits.*.url[$i]}}
+#            echo sha=${{github.event.commits.*.id[$i]}}
+#            echo sha=${{github.event.commits.*.message[$i]}}
           done
 
       - name: Send message to Telegram
