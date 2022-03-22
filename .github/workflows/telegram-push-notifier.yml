@@ -27,7 +27,6 @@ jobs:
           commits=${{github.event.commits}}
           length=${#github.event.commits[@]}
           for (( i = 0; i < length; i++ )); do
-            commit=${{github.event.commits[i]}}
             echo url=${{github.event.commits[i].url}}
             echo sha=${{github.event.commits[i].id}}
             echo actor=${{github.event.commits[i].author.username}}
