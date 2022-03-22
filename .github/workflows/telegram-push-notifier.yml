@@ -27,6 +27,7 @@ jobs:
           echo ${#commits[@]}
           for n in $commits ; do
             echo $n
+            echo $n
           done
           json=${{toJson(github)}}
 
