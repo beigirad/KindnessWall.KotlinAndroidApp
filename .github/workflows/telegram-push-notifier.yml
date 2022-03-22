@@ -27,7 +27,7 @@ jobs:
           commits=${{github.event.commits}}
           echo ${{github.event.commits.*.message}}
           length=${#commits[@]}
-          for i in "${commits[@]}" do
+          for i in "${commits[@]}"; do
             echo "Value: ${i}"
             echo "Value: ${i%.*}"
 #            echo url=${{github.event.commits.*.url[$i]}}
