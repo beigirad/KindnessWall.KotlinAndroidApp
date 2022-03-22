@@ -13,8 +13,9 @@ jobs:
       - name: Message creator
         run: |
           echo ${{toJson(github)}}
-      #          echo befor = ${{github.event.before}}
-      #          echo head = ${{github.event.head}}
+          echo befor = ${{github.event.before}}
+          echo after = ${{github.event.after}}
+          
       #          commits=${{github.event.commits}}
       #          echo ${{github.event.commits[][message]}}
       #
