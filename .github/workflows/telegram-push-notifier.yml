@@ -29,7 +29,7 @@ jobs:
 
           for (( i = 0; i < length; i++ )); do
             echo "$i" - "${{github.event.commits[i]}}"
-            commit={{github.event.commits[i]}}
+            commit=${{github.event.commits[i]}}
             echo "$i" - "${commit}"
           done
 
