@@ -16,6 +16,16 @@ jobs:
           echo ${{github.event.commits}}
 
           echo $commits
+          for commit in $commits;
+          do
+            echo $commit 
+            echo ${commit.message} 
+            echo ${commit.sha} 
+            echo ${commit.author} 
+            echo ${commit.author.name} 
+            echo ${commit.url}
+          done
+
 #          echo {{commits}}
 #          echo ${{commits}}
 
