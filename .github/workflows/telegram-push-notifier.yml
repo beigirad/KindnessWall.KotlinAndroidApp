@@ -24,6 +24,7 @@ jobs:
           echo ${{github.event.commits[0].id}}
           echo ${{github.event.commits[0].message}}
           echo ${{github.event.commits[0].url}}
+          echo ${#commits[@]}
           json=${{toJson(github)}}
 
       - name: Send message to Telegram
