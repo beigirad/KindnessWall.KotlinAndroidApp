@@ -14,7 +14,8 @@ jobs:
         run: |
           commits=${{github.event.commits}}
           echo ${{github.event.commits}}
-#          echo $commits
+
+          echo $commits
 #          echo {{commits}}
 #          echo ${{commits}}
 
