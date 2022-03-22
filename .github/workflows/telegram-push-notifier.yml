@@ -16,42 +16,15 @@ jobs:
 
       - name: Message creator
         run: |
-         before=${{github.event.before}}
-         after=${{github.event.after}}
-    #          commits=$(git rev-list $before..$after)
-    #          echo $commits
-         commits=${{github.event.commits}}
-         echo ${{github.event.commits}}
-#         echo ${#commits[@]}
-#         echo ${{#github.event.commits[@]}}
-         echo ${{github.event.commits[0]}}
-         echo ${{github.event.commits[0].id}}
-         echo ${{github.event.commits[0].message}}
-         echo ${{github.event.commits[0].url}}
-         json=${{toJson(github)}}
-
-      #          echo commits = ${{json.commits}}
-      #          echo $json
-
-      #          commits=${{github.event.commits}}
-      #          echo ${{github.event.commits[][message]}}
-      #
-      #          echo $commits
-      #          echo $commits[0][message]
-      #          echo ${commits[].message}
-      #          for commit in $commits
-      #          do
-      #            echo $commit
-      #            echo "${commit.message}"
-      #            echo ${commit.sha}
-      #            echo ${commit.author}
-      #            echo ${commit.author.name}
-      #            echo ${commit.url}
-      #          done
-
-      #          echo {{commits}}
-      #          echo ${{commits}}
-
+          before=${{github.event.before}}
+          after=${{github.event.after}}
+          commits=${{github.event.commits}}
+          echo ${{github.event.commits}}
+          echo ${{github.event.commits[0]}}
+          echo ${{github.event.commits[0].id}}
+          echo ${{github.event.commits[0].message}}
+          echo ${{github.event.commits[0].url}}
+          json=${{toJson(github)}}
 
       - name: Send message to Telegram
         uses: appleboy/telegram-action@v0.1.1
