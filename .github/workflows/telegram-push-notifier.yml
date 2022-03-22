@@ -27,13 +27,13 @@ jobs:
           commits=${{github.event.commits}}
           echo ${{github.event.commits.*.message}}
           length=${#commits[@]}
-          for (( i = 0; i < length; i++ )); do
-            commit=${{commits[i]}}
-            echo url=${{commit.url}}
-            echo sha=${{commit.id}}
-            echo actor=${{commit.author.username}}
-            echo message=${{commit.message}}
-          done
+#          for (( i = 0; i < length; i++ )); do
+#            commit=${{commits[i]}}
+#            echo url=${{commit.url}}
+#            echo sha=${{commit.id}}
+#            echo actor=${{commit.author.username}}
+#            echo message=${{commit.message}}
+#          done
 
       - name: Send message to Telegram
         uses: appleboy/telegram-action@v0.1.1
