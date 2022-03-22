@@ -20,7 +20,7 @@ jobs:
                after=${{github.event.after}}
           #          commits=$(git rev-list $before..$after)
           #          echo $commits
-               commits=${{github.event.commits}}
+#               commits=${{github.event.commits}}
                echo ${{github.event.commits}}
 #               echo ${#commits[@]}
 #               echo ${{#github.event.commits[@]}}
