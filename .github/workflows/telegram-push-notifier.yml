@@ -15,7 +15,7 @@ jobs:
           echo befor = ${{github.event.before}}
           echo head = ${{github.event.head}}
           commits=${{github.event.commits}}
-          echo ${{github.event.commits}}
+          echo ${{github.event.commits[][message]}}
 
           echo $commits
           echo $commits[0][message]
