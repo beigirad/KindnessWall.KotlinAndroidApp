@@ -32,7 +32,6 @@ jobs:
             outMessage+=$message
             outMessage+="\n\n"
           done
-
           echo $outMessage
           echo "::set-output name=message::$outMessage"
 
