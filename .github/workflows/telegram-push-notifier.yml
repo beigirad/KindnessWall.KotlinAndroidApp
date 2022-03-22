@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Message creator
         run: |
-          commits=$(echo ${{toJson(github.event)}} | jq '.commits')
+          commits=$(echo "${{toJson(github.event)}}" | jq '.commits')
           
           length=$(echo $commits | jq 'length')
 
