@@ -10,13 +10,20 @@ jobs:
     name: Notify via Telegram
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+
       - name: Message creator
         run: |
+          before=${{github.event.before}}
+          after=${{github.event.after}}
+          commits=$(git rev-list before..after)
+          echo $commits
           json=${{toJson(github)}}
-          echo befor = ${{github.event.before}}
-          echo after = ${{github.event.after}}
-          echo commits = ${{json.commits}}
-          echo $json
+
+      #          echo commits = ${{json.commits}}
+      #          echo $json
 
       #          commits=${{github.event.commits}}
       #          echo ${{github.event.commits[][message]}}
