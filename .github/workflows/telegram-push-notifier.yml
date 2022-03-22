@@ -28,10 +28,10 @@ jobs:
           length=${#github.event.commits[@]}
           for (( i = 0; i < length; i++ )); do
             commit=${{github.event.commits[i]}}
-            echo url=${{commit.url}}
-            echo sha=${{commit.id}}
-            echo actor=${{commit.author.username}}
-            echo message=${{commit.message}}
+            echo url=${{github.event.commits[i].url}}
+            echo sha=${{github.event.commits[i].id}}
+            echo actor=${{github.event.commits[i].author.username}}
+            echo message=${{github.event.commits[i].message}}
           done
 
       - name: Send message to Telegram
