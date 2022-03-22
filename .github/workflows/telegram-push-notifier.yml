@@ -28,9 +28,9 @@ jobs:
             actor=$(echo $commit | jq -r '.author.username')
           
             outMessage+="<a href="\"$url\"">$sha</a> • <a href="\"https://github.com/$actor\"">$actor</a>"
-            outMessage+="\n"
+            outMessage+="<br>"
             outMessage+=$message
-            outMessage+="\n\n"
+            outMessage+="<br><br>"
           done
           echo $outMessage
           echo "::set-output name=message::$outMessage"
