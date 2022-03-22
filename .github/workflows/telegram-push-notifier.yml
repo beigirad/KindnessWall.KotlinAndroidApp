@@ -27,7 +27,7 @@ jobs:
           echo ${#commits[@]}
           for n in ${commits} ; do
             echo $n
-            echo ${{toJson(n)}}
+            echo ${{toJson($n)}}
             echo ${n.message}
           done
 
