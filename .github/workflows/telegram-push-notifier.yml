@@ -25,6 +25,7 @@ jobs:
           echo ${{github.event.commits[0].message}}
           echo ${{github.event.commits[0].url}}
           length=${#commits[@]}
+          echo $length
           for (( i = 0; i < length; i++ )); do
             commit=commits[i]
             echo "$i" - "${commits[i]}"
