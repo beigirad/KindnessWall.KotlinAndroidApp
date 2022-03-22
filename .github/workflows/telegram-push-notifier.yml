@@ -16,9 +16,9 @@ jobs:
           jsonGithub='${{toJson(github.event)}}'
           commits=$(echo $jsonGithub | jq '.commits')
           length=$(echo $commits | jq 'length')
-          
+                  
           outMessage=""
-
+          
           for (( i = 0; i < length; i++ )); do
             commit=$(echo $commits | jq '.['$i']')
             url=$(echo $commit | jq -r '.url')
@@ -27,8 +27,10 @@ jobs:
             message=$(echo $commit | jq -r '.message')
             actor=$(echo $commit | jq -r '.author.username')
           
-            $outMessage+=`<a href="\"$url\"">$sha</a> • <a href="\"https://github.com/$actor\"">$actor</a>`
-            $outMessage+=$message
+            outMessage+="<a href="\"$url\"">$sha</a> • <a href="\"https://github.com/$actor\"">$actor</a>"
+            outMessage+="\n"
+            outMessage+=$message
+            outMessage+="\n\n"
           done
 
           echo $outMessage
