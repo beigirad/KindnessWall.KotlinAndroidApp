@@ -27,7 +27,7 @@ jobs:
             message=$(echo $commit | jq -r '.message')
             actor=$(echo $commit | jq -r '.author.username')
           
-            $outMessage+="<a href="\"$url\"">$sha</a> • <a href="\"https://github.com/$actor\"">$actor</a>"
+            $outMessage+=`<a href="\"$url\"">$sha</a> • <a href="\"https://github.com/$actor\"">$actor</a>`
             $outMessage+=$message
           done
 
