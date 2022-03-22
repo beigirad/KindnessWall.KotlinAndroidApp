@@ -18,19 +18,20 @@ jobs:
         run: |
           before=${{github.event.before}}
           after=${{github.event.after}}
-          commits=${{github.event.commits}}
           echo ${{github.event.commits}}
           echo ${{github.event.commits[0]}}
           echo ${{github.event.commits[0].id}}
           echo ${{github.event.commits[0].message}}
           echo ${{github.event.commits[0].url}}
+          
+          commits=${{github.event.commits}}
           length=${#github.event.commits[@]}
-          echo $length
-
           for (( i = 0; i < length; i++ )); do
-            echo "$i" - ${{github.event.commits[i]}}
             commit=${{github.event.commits[i]}}
-            echo "$i" -   "${commit}"
+            echo url=${{commit.url}}
+            echo sha=${{commit.id}}
+            echo actor=${{commit.author.username}}
+            echo message=${{commit.message}}
           done
 
       - name: Send message to Telegram
