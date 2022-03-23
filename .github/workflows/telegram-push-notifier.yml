@@ -3,7 +3,7 @@ name: Telegram Notifier
 on:
   push:
     branches:
-      - improve-ci
+      - improve-ci2
 
 jobs:
   notify:
@@ -16,18 +16,10 @@ jobs:
 
       - name: Message creator
         run: |
-          before=${{github.event.before}}
-          after=${{github.event.after}}
-          echo ${{github.event.commits}}
-          echo ${{github.event.commits[0]}}
-          echo ${{github.event.commits[0].id}}
-          echo ${{github.event.commits[0].message}}
-          echo ${{github.event.commits[0].url}}
-
-          commits=${{github.event.commits}}
+          commits=`${{github.event.commits}}`
           length=${#commits[@]}
           for (( i = 0; i < length; i++ )); do
-            commit=${{github.event.commits[i]}}
+            commit=${{commits[i]}}
             echo url=${{commit.url}}
             echo sha=${{commit.id}}
             echo actor=${{commit.author.username}}
