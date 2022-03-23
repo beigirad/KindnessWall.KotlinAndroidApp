@@ -15,7 +15,7 @@ jobs:
           commits=${{github.event.commits}}
           length=${#commits[@]}
           for (( i = 0; i < length; i++ )); do
-            commit=${commits[`i`]}
+            commit=${commits[`$i`]}
             echo $commit
             echo ${toJson(commits)}
             echo ${toJson(commit)}
