@@ -12,10 +12,10 @@ jobs:
     steps:
       - name: Message creator
         run: |
-          commits=${github.event.commits}
+          commits="${{github.event.commits}}"
           length=${#commits[@]}
           for (( i = 0; i < length; i++ )); do
-            commit=commits[i]
+            commit=${commits[i]}
             echo url=${commit.url}
             echo sha=${commit.id}
             echo actor=${commit.author.username}
