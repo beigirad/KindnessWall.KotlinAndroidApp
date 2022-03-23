@@ -10,10 +10,6 @@ jobs:
     name: Notify via Telegram
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 1
-
       - name: Message creator
         run: |
           commits=`${{github.event.commits}}`
