@@ -16,8 +16,8 @@ jobs:
           length=${#commits[@]}
           for (( i = 0; i < length; i++ )); do
             commit=${commits[i]}
-            echo ${{toJson(commits)}}
-            echo ${{toJson(commit)}}
+            echo {{toJson(commits)}}
+            echo {{toJson(commit)}}
             echo url=${commit.url}
             echo sha=${commit.id}
             echo actor=${commit.author.username}
